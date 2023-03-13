@@ -1,0 +1,70 @@
+:root {
+  --main-bg-color: rgb(37, 37, 114);
+  --secondary-bg-color: rgb(48, 196, 152);
+  --accent-color: neonpink;
+  --text-color: rgba(255, 255, 255, 0.785);
+  
+
+  background-size: 250%;
+  min-height: 100%;
+  font-family: "Roboto", sans-serif;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+html {
+  background: linear-gradient(
+    45deg,
+    var(--main-bg-color),
+    var(--secondary-bg-color)
+  );
+  color: var(--text-color);
+}
+ul{
+  display: block;
+  list-style-type: disc;
+  margin-block-start: 0;
+  margin-block-end: 0;
+  margin-inline-start: 0px;
+  margin-inline-end: 0px;
+  padding-inline-start: 0;
+}
+
+.disabled {
+  opacity: 0.5;
+  pointer-events: none;
+}
+
+.flex {
+  display: flex;
+}
+
+.flex-column {
+  display: flex;
+  flex-direction: column;
+}
+
+.center {
+  justify-content: center;
+  align-items: center;
+}
+
+.main-container {
+  gap: 2rem;
+}
+
+label {
+  font-size: larger;
+}
+
+.box-shadow {
+  box-shadow: rgba(50, 50, 93, 0.25) 0px 30px 60px -12px, rgba(0, 0, 0, 0.3) 0px 18px 36px -18px;
+}
+h1, h2, h3, h4{
+    margin-block-start: 0em;
+    margin-block-end: 0em;
+    margin-inline-start: 0px;
+    margin-inline-end: 0px;
+    font-weight: bold;
+}

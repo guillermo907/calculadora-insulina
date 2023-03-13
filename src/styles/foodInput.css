@@ -1,0 +1,19 @@
+input{
+    border-radius: 7px;
+    padding: 10px 10px;
+    border: none;
+}
+.selected-foodlist{
+    list-style: none;
+    margin: 1.5rem 0;
+}
+.selected-food-item{
+    border-bottom: 1px solid;
+    margin-bottom: 0.75rem; 
+}
+label{
+    margin: 1rem;
+}
+.carbs{
+    color: rgba(235, 74, 42, 0.977);
+}

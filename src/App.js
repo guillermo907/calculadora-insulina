@@ -1,25 +1,29 @@
-import logo from './logo.svg';
-import './App.css';
+import React, { useEffect, useState } from "react";
+import axios from "axios";
+import Glucose from "./components/Glucose";
+import FoodInput from "./components/FoodInput";
+import { foods } from "./resources/foodList";
+import "./styles/global.css";
 
-function App() {
+const App = () => {
+  const initialState = { foodList: [] };
+  const [state, setState] = useState(initialState);
+
+  useEffect(() => {
+    getFoods();
+  }, []);
+
+  const getFoods = async () => {
+    const response = await axios.get("https://foodlist.onrender.com/foods", {});
+    setState({ ...state, foodList: response.data });
+  };
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div className="flex-column center main-container">
+      <Glucose />
+      <FoodInput foods={state.foodList} />
     </div>
   );
-}
+};
 
 export default App;
