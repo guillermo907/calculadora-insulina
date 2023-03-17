@@ -30,8 +30,11 @@ const FoodInput = ({ foods }) => {
       <option
         className="food-list-option"
         value={option.food_name}
+        /* value={`${option.food_name} ${option.quantity}`} */
         key={`00-${option.id}`}
-      />
+      >
+        {`${option.food_name}, ${option.quantity}`}
+      </option>
     );
   });
 
@@ -54,7 +57,7 @@ const FoodInput = ({ foods }) => {
       return sum + Number(food.carbohydrates);
     }, 0);
 
-    return carbs / 13;
+    return (carbs / 13).toFixed(1);
   };
 
   return (
