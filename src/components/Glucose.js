@@ -1,7 +1,7 @@
 import React from "react";
 import appLogo from "../resources/app-logo2.png";
 
-const Glucose = ({ show }) => {
+const Glucose = ({ show, user }) => {
   return (
     <div className={`glucose-input-container`}>
       <div
@@ -11,14 +11,18 @@ const Glucose = ({ show }) => {
       >
         <div className="field">
           <label>Ingrese su nivel de glucosa actual</label>
-          <input></input>
+          <input placeholder="100"></input>
         </div>
         <div className="field">
-          <img class="app-logo" src={appLogo} />
+          <img className="app-logo" src={appLogo} />
         </div>
         <div className="field">
           <label>Ingrese su RIC</label>
-          <input></input>
+          <input placeholder={user.RIC}></input>
+        </div>
+        <div className="field">
+          <label>Ingrese su sensibilidad</label>
+          <input placeholder={user.sensibilidad}></input>
         </div>
       </div>
     </div>

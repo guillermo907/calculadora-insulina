@@ -2,9 +2,8 @@ import React, { useState, useEffect } from "react";
 import "../styles/foodInput.css";
 
 const FoodInput = ({ foods }) => {
-  console.log(foods);
-
   const [searchTerm, setSearchTerm] = useState("");
+  const [carbData, setCarbData] = useState({});
   const [foodList, setFoodList] = useState([]);
   const [selectedFoodList, setSelectedFoodList] = useState([]);
 
@@ -50,10 +49,18 @@ const FoodInput = ({ foods }) => {
     }, 0);
   };
 
+  const calcInsulina = () => {
+    const carbs = selectedFoodList.reduce((sum, food) => {
+      return sum + Number(food.carbohydrates);
+    }, 0);
+
+    return carbs / 13;
+  };
+
   return (
     <div className="flex-column center food-input-group">
       <label>
-        <h2 class="buscar-tag tag">Buscar Alimento</h2>
+        <h2 className="buscar-tag tag">Buscar Alimento</h2>
       </label>
       <input
         list="foods"
@@ -64,10 +71,18 @@ const FoodInput = ({ foods }) => {
       />
       <datalist id="foods">{renderOptions}</datalist>
       <ul className="selected-foodlist">{renderSelectedFoodList}</ul>
-      <div>
-        <h3 class="legend">
+      <div className="info-field">
+        <h3 className="legend">
           El total de carbohidratos es de: <b className="carbs">{calcCarb()}</b>{" "}
           gramos
+        </h3>
+      </div>
+      <br />
+      <br />
+      <div className="info-field disabled">
+        <h3 className="legend">
+          La cantidad a inyectarse sera de{" "}
+          <b className="carbs">{calcInsulina()}</b> gramos
         </h3>
       </div>
     </div>

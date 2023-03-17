@@ -6,7 +6,7 @@ const Navbar = ({ toggleUserSettings }) => {
   return (
     <nav className="navbar">
       <div className="left">
-        <img class="app-logo" src={appLogo} />
+        <img className="app-logo" src={appLogo} />
       </div>
       <div className="right">
         <span>

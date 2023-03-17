@@ -7,9 +7,12 @@ import { foods } from "./resources/foodList";
 import "./styles/global.css";
 
 const App = () => {
-  const initialState = { foodList: [] };
+  const initialState = {
+    foodList: [],
+    showUserSettings: false,
+    userSettings: { RIC: 13, sensibilidad: 50 },
+  };
   const [state, setState] = useState(initialState);
-  const [showUserSettings, toggleUserSettings] = useState(false);
 
   useEffect(() => {
     getFoods();
@@ -18,7 +21,7 @@ const App = () => {
   const getFoods = async () => {
     /* const response = await axios.get("https://foodlist.onrender.com/foods", {}); */
     const response = await axios.get(
-      "http://localhost/foodapi/getfoods.php",
+      "http://localhost/foods-api/getfoods.php",
       {}
     );
     console.log(response.data);
@@ -28,9 +31,14 @@ const App = () => {
   return (
     <div className="flex-column center main-container">
       <Navbar
-        toggleUserSettings={() => toggleUserSettings(!showUserSettings)}
+        toggleUserSettings={() => {
+          setState((prevstate) => ({
+            ...state,
+            showUserSettings: !prevstate.showUserSettings,
+          }));
+        }}
       />
-      <Glucose show={showUserSettings} />
+      <Glucose show={state.showUserSettings} user={state.userSettings} />
       <FoodInput foods={state.foodList} />
     </div>
   );
