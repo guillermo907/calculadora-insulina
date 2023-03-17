@@ -1,0 +1,20 @@
+.navbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: -webkit-fill-available;
+  padding: 30px 20px 0px 30px;
+}
+img {
+  width: 60px;
+  filter: contrast(0.7);
+  transition: all 0.4s ease-in-out;
+}
+img:hover {
+  cursor: pointer;
+  filter: none;
+  transform: scale(1.09);
+}
+.user-logo {
+  width: 45px;
+}

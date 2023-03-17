@@ -2,23 +2,23 @@ import React, { useState, useEffect } from "react";
 import "../styles/foodInput.css";
 
 const FoodInput = ({ foods }) => {
+  console.log(foods);
+
   const [searchTerm, setSearchTerm] = useState("");
   const [foodList, setFoodList] = useState([]);
   const [selectedFoodList, setSelectedFoodList] = useState([]);
 
   useEffect(() => {
     const filteredFoodList = foods.filter((food) =>
-      food.name.toLowerCase().includes(searchTerm)
+      food.food_name.toLowerCase().includes(searchTerm)
     );
     setFoodList(filteredFoodList);
   }, [searchTerm]);
 
-  console.log(foodList);
-
   const handleOnChange = (e) => {
     setSearchTerm(e.target.value);
     const foundElement = foodList.find(
-      (foodListItem) => foodListItem.name === e.target.value
+      (foodListItem) => foodListItem.food_name === e.target.value
     );
     if (foundElement) {
       setSelectedFoodList([...selectedFoodList, foundElement]);
@@ -30,7 +30,7 @@ const FoodInput = ({ foods }) => {
     return (
       <option
         className="food-list-option"
-        value={option.name}
+        value={option.food_name}
         key={`00-${option.id}`}
       />
     );
@@ -39,21 +39,21 @@ const FoodInput = ({ foods }) => {
   const renderSelectedFoodList = selectedFoodList.map((selectedFood) => {
     return (
       <li className="selected-food-item" key={selectedFood.id}>
-        {selectedFood.name}
+        {selectedFood.food_name}
       </li>
     );
   });
 
   const calcCarb = () => {
     return selectedFoodList.reduce((sum, food) => {
-      return sum + food.carbohydrates;
+      return sum + Number(food.carbohydrates);
     }, 0);
   };
 
   return (
     <div className="flex-column center food-input-group">
       <label>
-        <h2>Buscar Alimento</h2>
+        <h2 class="buscar-tag tag">Buscar Alimento</h2>
       </label>
       <input
         list="foods"
@@ -65,7 +65,7 @@ const FoodInput = ({ foods }) => {
       <datalist id="foods">{renderOptions}</datalist>
       <ul className="selected-foodlist">{renderSelectedFoodList}</ul>
       <div>
-        <h3>
+        <h3 class="legend">
           El total de carbohidratos es de: <b className="carbs">{calcCarb()}</b>{" "}
           gramos
         </h3>
