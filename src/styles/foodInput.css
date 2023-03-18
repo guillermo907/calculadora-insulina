@@ -18,3 +18,10 @@ label {
   color: rgba(235, 74, 42, 0.977);
   font-size: 32px;
 }
+.cubiertos-logo {
+  width: 130px;
+  margin-bottom: 30px;
+}
+.buscar-label {
+  text-align: center;
+}

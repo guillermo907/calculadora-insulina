@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react";
+import cubiertosLogo from "../resources/cubiertos.png";
 import "../styles/foodInput.css";
 
 const FoodInput = ({ foods }) => {
@@ -62,13 +63,15 @@ const FoodInput = ({ foods }) => {
 
   return (
     <div className="flex-column center food-input-group">
-      <label>
-        <h2 className="buscar-tag tag">Buscar Alimento</h2>
+      <label class="buscar-label">
+        <h2 className="buscar-tag tag"></h2>
+        <img className="cubiertos-logo" src={cubiertosLogo} />
       </label>
       <input
         list="foods"
         name="myFoods"
         value={searchTerm}
+        placeholder="Buscar alimento..."
         onChange={handleOnChange}
         className="food-input box-shadow"
       />
@@ -85,7 +88,7 @@ const FoodInput = ({ foods }) => {
       <div className="info-field disabled">
         <h3 className="legend">
           La cantidad a inyectarse sera de{" "}
-          <b className="carbs">{calcInsulina()}</b> gramos
+          <b className="carbs">{calcInsulina()}</b> unidades
         </h3>
       </div>
     </div>
