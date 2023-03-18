@@ -10,7 +10,7 @@ const FoodInput = ({ foods }) => {
 
   useEffect(() => {
     const filteredFoodList = foods.filter((food) =>
-      food.food_name.toLowerCase().includes(searchTerm)
+      food.food_name.toLowerCase().includes(searchTerm.toLocaleLowerCase())
     );
     setFoodList(filteredFoodList);
   }, [searchTerm]);
@@ -31,7 +31,6 @@ const FoodInput = ({ foods }) => {
       <option
         className="food-list-option"
         value={option.food_name}
-        /* value={`${option.food_name} ${option.quantity}`} */
         key={`00-${option.id}`}
       >
         {`${option.food_name}, ${option.quantity}`}
