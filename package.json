@@ -1,5 +1,6 @@
 {
   "name": "calc-insulina",
+  "homepage": "https://guillermo907.github.io/calculadora-insulina",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
