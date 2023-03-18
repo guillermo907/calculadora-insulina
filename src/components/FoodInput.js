@@ -88,7 +88,7 @@ const FoodInput = ({ foods }) => {
       <div className="info-field disabled">
         <h3 className="legend">
           La cantidad a inyectarse sera de{" "}
-          <b className="carbs">{calcInsulina()}</b> unidades
+          <b className="carbs insulina">{calcInsulina()}</b> unidades
         </h3>
       </div>
     </div>

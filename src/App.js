@@ -3,6 +3,7 @@ import axios from "axios";
 import Glucose from "./components/Glucose";
 import FoodInput from "./components/FoodInput";
 import Navbar from "./components/Navbar";
+import Footer from "./components/Footer";
 import { foods } from "./resources/foodList";
 import "./styles/global.css";
 
@@ -19,12 +20,15 @@ const App = () => {
   }, []);
 
   const getFoods = async () => {
-    /* const response = await axios.get("https://foodlist.onrender.com/foods", {}); */
-    const response = await axios.get(
-      "http://localhost/foods-api/getfoods.php",
-      {}
-    );
-    console.log(response.data);
+    let apiBaseUrl = "";
+    if (process.env.NODE_ENV !== "development") {
+      apiBaseUrl = "https://foodlistapi.000webhostapp.com";
+    } else {
+      apiBaseUrl = "http://localhost/foods-api";
+      apiBaseUrl = "https://foodlistapi.000webhostapp.com";
+    }
+
+    const response = await axios.get(`${apiBaseUrl}/getFoods.php`);
     setState({ ...state, foodList: response.data });
   };
 
@@ -40,6 +44,7 @@ const App = () => {
       />
       <Glucose show={state.showUserSettings} user={state.userSettings} />
       <FoodInput foods={state.foodList} />
+      <Footer />
     </div>
   );
 };
