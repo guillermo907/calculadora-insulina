@@ -1,0 +1,13 @@
+{
+  "files": {
+    "main.css": "/calculadora-insulina/static/css/main.cd7ace5c.css",
+    "main.js": "/calculadora-insulina/static/js/main.07a010a4.js",
+    "index.html": "/calculadora-insulina/index.html",
+    "main.cd7ace5c.css.map": "/calculadora-insulina/static/css/main.cd7ace5c.css.map",
+    "main.07a010a4.js.map": "/calculadora-insulina/static/js/main.07a010a4.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.cd7ace5c.css",
+    "static/js/main.07a010a4.js"
+  ]
+}
