@@ -15,7 +15,10 @@ const AppContainer = styled.div`
     ${(props) => props.colorTwo}
   );
   background-size: 200%;
-  color: ${(props) => props.textColor};
+  color: ${(props) => (props.textColor === "dark" ? "black" : "white")};
+  img {
+    filter: ${(props) => (props.textColor === "dark" ? "invert(0.8)" : "none")};
+  }
 `;
 
 const App = () => {
@@ -47,16 +50,14 @@ const App = () => {
     setState({ ...state, foodList: response.data });
   };
 
-  const changeColor = (colorOne, colorTwo) => {
-    console.log("Color 1: ", colorOne);
-    console.log("Color 2: ", colorTwo);
-
+  const changeColor = (colorOne, colorTwo, textColor) => {
     setState({
       ...state,
       appSettings: {
         ...state.appSettings,
         colorOne: colorOne,
         colorTwo: colorTwo,
+        textColor: textColor,
       },
     });
   };

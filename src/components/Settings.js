@@ -1,11 +1,13 @@
 import styled from "styled-components";
 import { useState } from "react";
+
 const SettingsCont = styled.div`
   background: linear-gradient(
     45deg,
     ${(props) => props.colorOne},
     ${(props) => props.colorTwo}
   );
+  color: ${(props) => (props.textColor === "dark" ? "black" : "white")};
   border: 1px solid;
   display: flex;
   flex-direction: column;
@@ -49,23 +51,32 @@ const SettingsCont = styled.div`
     display: flex;
     flex-direction: column;
   }
+  #textColor {
+    padding: 5px;
+    border-radius: 7px;
+    padding: 5px 5px;
+    border: none;
+  }
 `;
 
 const Settings = ({ setTheme }) => {
-  const initialColorState = { colorOne: "", colorTwo: "" };
+  const initialColorState = { colorOne: "", colorTwo: "", textColor: "" };
   const [colors, setColors] = useState(initialColorState);
 
   const handleColorChange = () => {
-    console.log("chandle change called");
-    setTheme(colors.colorOne, colors.colorTwo);
+    setTheme(colors.colorOne, colors.colorTwo, colors.textColor);
   };
 
   return (
-    <SettingsCont colorOne={colors.colorOne} colorTwo={colors.colorTwo}>
+    <SettingsCont
+      colorOne={colors.colorOne}
+      colorTwo={colors.colorTwo}
+      textColor={colors.textColor}
+    >
       <div className="theme-field">
-        <div class="color-pickers">
-          Color one
-          <div>
+        <div className="color-pickers">
+          <div className="option-field">
+            <label>Color one</label>
             <input
               type="color"
               name="color1"
@@ -74,9 +85,8 @@ const Settings = ({ setTheme }) => {
               }}
             />
           </div>
-          <br />
-          Color two
-          <div>
+          <div className="option-field">
+            <label>Color two</label>
             <input
               type="color"
               name="color2"
@@ -84,6 +94,20 @@ const Settings = ({ setTheme }) => {
                 setColors({ ...colors, colorTwo: e.target.value });
               }}
             />
+          </div>
+          <div className="option-field">
+            <label htmlFor="textColor">Text Color:</label>
+            <select
+              id="textColor"
+              name="textColor"
+              value={colors.textColor}
+              onChange={(e) => {
+                setColors({ ...colors, textColor: e.target.value });
+              }}
+            >
+              <option value="light">Light</option>
+              <option value="dark">Dark</option>
+            </select>
           </div>
         </div>
         <button
