@@ -86,6 +86,7 @@ h4 {
 }
 .glucose-input-group {
   padding: 15px 10px;
+  margin: 10px 5px;
   border: 1px solid;
   border-radius: 7px;
   gap: 1rem;
