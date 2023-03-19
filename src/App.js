@@ -4,6 +4,7 @@ import Glucose from "./components/Glucose";
 import FoodInput from "./components/FoodInput";
 import Navbar from "./components/Navbar";
 import Footer from "./components/Footer";
+import Settings from "./components/Settings";
 import "./styles/global.css";
 import styled from "styled-components";
 
@@ -46,7 +47,7 @@ const App = () => {
     setState({ ...state, foodList: response.data });
   };
 
-  const changeColorOne = (colorOne, colorTwo) => {
+  const changeColor = (colorOne, colorTwo) => {
     console.log("Color 1: ", colorOne);
     console.log("Color 2: ", colorTwo);
 
@@ -75,11 +76,10 @@ const App = () => {
           }));
         }}
       />
-      <Glucose
-        show={state.showUserSettings}
-        user={state.userSettings}
-        setTheme={changeColorOne}
-      />
+      {state.showUserSettings && (
+        <Glucose user={state.userSettings} setTheme={changeColor} />
+      )}
+      {state.showUserSettings && <Settings setTheme={changeColor} />}
       <FoodInput foods={state.foodList} />
       <Footer />
     </AppContainer>
