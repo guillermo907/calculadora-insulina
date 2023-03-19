@@ -4,14 +4,29 @@ import Glucose from "./components/Glucose";
 import FoodInput from "./components/FoodInput";
 import Navbar from "./components/Navbar";
 import Footer from "./components/Footer";
-import { foods } from "./resources/foodList";
 import "./styles/global.css";
+import styled from "styled-components";
+
+const AppContainer = styled.div`
+  background: linear-gradient(
+    to right,
+    ${(props) => props.colorOne},
+    ${(props) => props.colorTwo}
+  );
+  background-size: 200%;
+  color: ${(props) => props.textColor};
+`;
 
 const App = () => {
   const initialState = {
     foodList: [],
     showUserSettings: false,
     userSettings: { RIC: 13, sensibilidad: 50 },
+    appSettings: {
+      colorOne: "dodgerblue",
+      colorTwo: "mediumseagreen",
+      textColor: "rgba(255, 255, 255, 0.785)",
+    },
   };
   const [state, setState] = useState(initialState);
 
@@ -27,13 +42,31 @@ const App = () => {
       apiBaseUrl = "http://localhost/foods-api";
       apiBaseUrl = "https://foodlistapi.000webhostapp.com";
     }
-
     const response = await axios.get(`${apiBaseUrl}/getFoods.php`);
     setState({ ...state, foodList: response.data });
   };
 
+  const changeColorOne = (colorOne, colorTwo) => {
+    console.log("Color 1: ", colorOne);
+    console.log("Color 2: ", colorTwo);
+
+    setState({
+      ...state,
+      appSettings: {
+        ...state.appSettings,
+        colorOne: colorOne,
+        colorTwo: colorTwo,
+      },
+    });
+  };
+
   return (
-    <div className="flex-column center main-container">
+    <AppContainer
+      className="flex-column center main-container"
+      colorOne={state.appSettings.colorOne}
+      colorTwo={state.appSettings.colorTwo}
+      textColor={state.appSettings.textColor}
+    >
       <Navbar
         toggleUserSettings={() => {
           setState((prevstate) => ({
@@ -42,10 +75,14 @@ const App = () => {
           }));
         }}
       />
-      <Glucose show={state.showUserSettings} user={state.userSettings} />
+      <Glucose
+        show={state.showUserSettings}
+        user={state.userSettings}
+        setTheme={changeColorOne}
+      />
       <FoodInput foods={state.foodList} />
       <Footer />
-    </div>
+    </AppContainer>
   );
 };
 

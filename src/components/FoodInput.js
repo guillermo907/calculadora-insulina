@@ -62,7 +62,7 @@ const FoodInput = ({ foods }) => {
 
   return (
     <div className="flex-column center food-input-group">
-      <label class="buscar-label">
+      <label className="buscar-label">
         <h2 className="buscar-tag tag"></h2>
         <img className="cubiertos-logo" src={cubiertosLogo} />
       </label>
@@ -95,7 +95,3 @@ const FoodInput = ({ foods }) => {
 };
 
 export default FoodInput;
-
-// Reemplazar datalist con un div, que se muestre/oculte dependiendo del
-// estado de un toggle (crear un hook para el select toggle
-// eg const [toggle, setToggle] = useState(false)
