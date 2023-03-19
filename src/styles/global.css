@@ -1,5 +1,5 @@
 :root {
-  --main-bg-color: dodgerblue;
+  --main-bg-color: rgb(30, 144, 255);
   --secondary-bg-color: mediumseagreen;
   --accent-color: rgb(231, 103, 197);
   --text-color: rgba(255, 255, 255, 0.785);
@@ -9,6 +9,8 @@
   flex-direction: column;
   justify-content: space-between;
   align-items: center;
+  scroll-behavior: smooth;
+  transition: all 0.4s ease-in-out;
 }
 body {
   margin: 0;

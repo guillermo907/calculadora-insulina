@@ -16,8 +16,10 @@ const AppContainer = styled.div`
   );
   background-size: 200%;
   color: ${(props) => (props.textColor === "dark" ? "black" : "white")};
+
   img {
-    filter: ${(props) => (props.textColor === "dark" ? "invert(0.8)" : "none")};
+    filter: ${(props) =>
+      props.logoColorMode === "light" ? "invert(0.9)" : "none"};
   }
 `;
 
@@ -30,6 +32,7 @@ const App = () => {
       colorOne: "dodgerblue",
       colorTwo: "mediumseagreen",
       textColor: "rgba(255, 255, 255, 0.785)",
+      logoColorMode: "dark",
     },
   };
   const [state, setState] = useState(initialState);
@@ -50,7 +53,7 @@ const App = () => {
     setState({ ...state, foodList: response.data });
   };
 
-  const changeColor = (colorOne, colorTwo, textColor) => {
+  const changeColor = (colorOne, colorTwo, textColor, logoColorMode) => {
     setState({
       ...state,
       appSettings: {
@@ -58,6 +61,7 @@ const App = () => {
         colorOne: colorOne,
         colorTwo: colorTwo,
         textColor: textColor,
+        logoColorMode: logoColorMode,
       },
     });
   };
@@ -68,6 +72,7 @@ const App = () => {
       colorOne={state.appSettings.colorOne}
       colorTwo={state.appSettings.colorTwo}
       textColor={state.appSettings.textColor}
+      logoColorMode={state.appSettings.logoColorMode}
     >
       <Navbar
         toggleUserSettings={() => {

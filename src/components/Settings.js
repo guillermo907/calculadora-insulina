@@ -7,13 +7,14 @@ const SettingsCont = styled.div`
     ${(props) => props.colorOne},
     ${(props) => props.colorTwo}
   );
+  background-size: 150%;
   color: ${(props) => (props.textColor === "dark" ? "black" : "white")};
   border: 1px solid;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: space-between;
-  padding: 15px 15px 10px 15px;
+  padding: 35px 15px 10px 15px;
   margin: 5px;
   border-radius: 7px;
 
@@ -23,10 +24,6 @@ const SettingsCont = styled.div`
     justify-content: space-evenly;
     gap: 1rem;
     width: 100%;
-  }
-  .theme-field > div {
-    display: flex;
-    gap: 0.5rem;
   }
   .theme-field input {
     padding: initial;
@@ -57,14 +54,28 @@ const SettingsCont = styled.div`
     padding: 5px 5px;
     border: none;
   }
+  .color-pickers {
+    display: flex;
+    gap: 1rem;
+  }
 `;
 
 const Settings = ({ setTheme }) => {
-  const initialColorState = { colorOne: "", colorTwo: "", textColor: "" };
+  const initialColorState = {
+    colorOne: "#1e90ff",
+    colorTwo: "#3cb371",
+    textColor: "",
+    logoColorMode: "dark",
+  };
   const [colors, setColors] = useState(initialColorState);
 
   const handleColorChange = () => {
-    setTheme(colors.colorOne, colors.colorTwo, colors.textColor);
+    setTheme(
+      colors.colorOne,
+      colors.colorTwo,
+      colors.textColor,
+      colors.logoColorMode
+    );
   };
 
   return (
@@ -80,6 +91,7 @@ const Settings = ({ setTheme }) => {
             <input
               type="color"
               name="color1"
+              value={colors.colorOne}
               onChange={(e) => {
                 setColors({ ...colors, colorOne: e.target.value });
               }}
@@ -90,6 +102,7 @@ const Settings = ({ setTheme }) => {
             <input
               type="color"
               name="color2"
+              value={colors.colorTwo}
               onChange={(e) => {
                 setColors({ ...colors, colorTwo: e.target.value });
               }}
@@ -103,6 +116,21 @@ const Settings = ({ setTheme }) => {
               value={colors.textColor}
               onChange={(e) => {
                 setColors({ ...colors, textColor: e.target.value });
+              }}
+            >
+              <option value="light">Light</option>
+              <option value="dark">Dark</option>
+            </select>
+          </div>
+
+          <div className="option-field">
+            <label htmlFor="textColor">logo Color:</label>
+            <select
+              id="textColor"
+              name="textColor"
+              value={colors.logoColorMode}
+              onChange={(e) => {
+                setColors({ ...colors, logoColorMode: e.target.value });
               }}
             >
               <option value="light">Light</option>
