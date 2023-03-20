@@ -60,17 +60,11 @@ const SettingsCont = styled.div`
   }
 `;
 
-const Settings = ({ setTheme }) => {
-  const initialColorState = {
-    colorOne: "#1e90ff",
-    colorTwo: "#3cb371",
-    textColor: "",
-    logoColorMode: "dark",
-  };
-  const [colors, setColors] = useState(initialColorState);
+const Settings = ({ setState, initialColorState }) => {
+  const [colors, setColors] = useState({ initialColorState });
 
   const handleColorChange = () => {
-    setTheme(
+    setState(
       colors.colorOne,
       colors.colorTwo,
       colors.textColor,
@@ -91,7 +85,6 @@ const Settings = ({ setTheme }) => {
             <input
               type="color"
               name="color1"
-              value={colors.colorOne}
               onChange={(e) => {
                 setColors({ ...colors, colorOne: e.target.value });
               }}
@@ -102,7 +95,6 @@ const Settings = ({ setTheme }) => {
             <input
               type="color"
               name="color2"
-              value={colors.colorTwo}
               onChange={(e) => {
                 setColors({ ...colors, colorTwo: e.target.value });
               }}
@@ -113,7 +105,6 @@ const Settings = ({ setTheme }) => {
             <select
               id="textColor"
               name="textColor"
-              value={colors.textColor}
               onChange={(e) => {
                 setColors({ ...colors, textColor: e.target.value });
               }}
@@ -128,13 +119,12 @@ const Settings = ({ setTheme }) => {
             <select
               id="textColor"
               name="textColor"
-              value={colors.logoColorMode}
               onChange={(e) => {
                 setColors({ ...colors, logoColorMode: e.target.value });
               }}
             >
-              <option value="light">Light</option>
               <option value="dark">Dark</option>
+              <option value="light">Light</option>
             </select>
           </div>
         </div>
