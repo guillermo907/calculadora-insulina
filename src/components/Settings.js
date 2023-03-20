@@ -1,5 +1,6 @@
 import styled from "styled-components";
 import { useState } from "react";
+import appLogo from "../resources/app-logo2.png";
 
 const SettingsCont = styled.div`
   background: linear-gradient(
@@ -58,6 +59,15 @@ const SettingsCont = styled.div`
     display: flex;
     gap: 1rem;
   }
+  img {
+    filter: ${(props) =>
+      props.logoColorMode === "light" ? "invert(0.9)" : "none"} !important;
+  }
+  .theme-right {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+  }
 `;
 
 const Settings = ({ setState, initialColorState }) => {
@@ -77,7 +87,10 @@ const Settings = ({ setState, initialColorState }) => {
       colorOne={colors.colorOne}
       colorTwo={colors.colorTwo}
       textColor={colors.textColor}
+      logoColorMode={colors.logoColorMode}
     >
+      <h2>Theme Preview</h2>
+      <br />
       <div className="theme-field">
         <div className="color-pickers">
           <div className="option-field">
@@ -128,14 +141,17 @@ const Settings = ({ setState, initialColorState }) => {
             </select>
           </div>
         </div>
-        <button
-          onClick={handleColorChange}
-          className={`box-shadow ${
-            colors.colorOne && colors.colorsTwo ? "disabled" : ""
-          }`}
-        >
-          Change theme
-        </button>
+        <div className="theme-right">
+          <img className="sample-logo" src={appLogo} />
+          <button
+            onClick={handleColorChange}
+            className={`box-shadow ${
+              colors.colorOne && colors.colorsTwo ? "disabled" : ""
+            }`}
+          >
+            Change theme
+          </button>
+        </div>
       </div>
       <p>You must select both colors to see preview and select..</p>
     </SettingsCont>
