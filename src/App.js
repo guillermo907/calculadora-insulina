@@ -47,7 +47,7 @@ const App = () => {
       apiBaseUrl = "http://localhost/foods-api";
       apiBaseUrl = "https://foodlistapi.000webhostapp.com";
     }
-    const response = await axios.get(`${apiBaseUrl}/getFoods.php`);
+    const response = await axios.get(`${apiBaseUrl}/views/getFoods.php`);
     setState({ ...state, foodList: response.data });
   };
 
