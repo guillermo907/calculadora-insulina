@@ -103,7 +103,7 @@ h4 {
     rgba(7, 45, 91, 0.331)
   );
   background-size: 300%;
-  min-height: 84dvh;
+  /* min-height: 84dvh; */
 }
 
 h3.legend {
