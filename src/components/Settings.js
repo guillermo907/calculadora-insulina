@@ -28,6 +28,10 @@ const SettingsCont = styled.div`
   }
   .theme-field input {
     padding: initial;
+    border-radius: 50%;
+    width: 25px;
+    height: 25px;
+    border: 1px solid white;
   }
   button {
     padding: 10px 12px;
@@ -98,6 +102,8 @@ const Settings = ({ setState, initialColorState }) => {
             <input
               type="color"
               name="color1"
+              className="box-shadow"
+              style={{ background: colors.colorOne }}
               onChange={(e) => {
                 setColors({ ...colors, colorOne: e.target.value });
               }}
@@ -108,6 +114,8 @@ const Settings = ({ setState, initialColorState }) => {
             <input
               type="color"
               name="color2"
+              className="box-shadow"
+              style={{ background: colors.colorTwo }}
               onChange={(e) => {
                 setColors({ ...colors, colorTwo: e.target.value });
               }}
