@@ -80,10 +80,7 @@ const App = () => {
         />
         {state.showUserSettings && <Glucose user={state.userSettings} />}
         {state.showUserSettings && (
-          <Settings
-            setState={changeColor}
-            initialColorState={initialState.appSettings}
-          />
+          <Settings setState={changeColor} initialColorState={theme} />
         )}
         <FoodInput foods={state.foodList} />
         <Footer />

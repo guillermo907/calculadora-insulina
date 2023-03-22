@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import appLogo from "../resources/app-logo2.png";
 
 const SettingsCont = styled.div`
@@ -29,8 +29,8 @@ const SettingsCont = styled.div`
   .theme-field input {
     padding: initial;
     border-radius: 50%;
-    width: 25px;
-    height: 25px;
+    width: 30px;
+    height: 30px;
     border: 1px solid white;
   }
   button {
@@ -77,6 +77,11 @@ const SettingsCont = styled.div`
 const Settings = ({ setState, initialColorState }) => {
   const [colors, setColors] = useState({ initialColorState });
 
+  useEffect(() => {
+    console.log(initialColorState);
+    setColors(initialColorState);
+  }, []);
+
   const handleColorChange = () => {
     setState(
       colors.colorOne,
@@ -104,6 +109,7 @@ const Settings = ({ setState, initialColorState }) => {
               name="color1"
               className="box-shadow"
               style={{ background: colors.colorOne }}
+              value={colors.colorOne}
               onChange={(e) => {
                 setColors({ ...colors, colorOne: e.target.value });
               }}
@@ -116,6 +122,7 @@ const Settings = ({ setState, initialColorState }) => {
               name="color2"
               className="box-shadow"
               style={{ background: colors.colorTwo }}
+              value={colors.colorTwo}
               onChange={(e) => {
                 setColors({ ...colors, colorTwo: e.target.value });
               }}
@@ -126,6 +133,7 @@ const Settings = ({ setState, initialColorState }) => {
             <select
               id="textColor"
               name="textColor"
+              value={colors.textColor}
               onChange={(e) => {
                 setColors({ ...colors, textColor: e.target.value });
               }}
@@ -140,6 +148,7 @@ const Settings = ({ setState, initialColorState }) => {
             <select
               id="textColor"
               name="textColor"
+              value={colors.logoColorMode}
               onChange={(e) => {
                 setColors({ ...colors, logoColorMode: e.target.value });
               }}

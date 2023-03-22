@@ -29,3 +29,18 @@ label {
 .buscar-label {
   text-align: center;
 }
+.food-input-group {
+  padding: 50px 15px;
+  width: -webkit-fill-available;
+  background: rgb(101, 38, 165);
+  background: linear-gradient(
+    to top,
+    rgba(255, 255, 255, 0),
+    rgba(7, 45, 91, 0.331)
+  );
+  background-size: 300%;
+  /* min-height: 84dvh; */
+}
+.food-input {
+  min-width: 300px;
+}
