@@ -4,11 +4,11 @@ import appLogo from "../resources/app-logo2.png";
 
 const SettingsCont = styled.div`
   background: linear-gradient(
-    45deg,
+    to right,
     ${(props) => props.colorOne},
     ${(props) => props.colorTwo}
   );
-  background-size: 150%;
+  background-size: 200%;
   color: ${(props) => (props.textColor === "dark" ? "black" : "white")};
   border: 1px solid;
   display: flex;
@@ -32,6 +32,33 @@ const SettingsCont = styled.div`
     width: 30px;
     height: 30px;
     border: 1px solid white;
+  }
+  .preset-section {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    background: ${(props) =>
+      props.textColor === "dark"
+        ? "rgba(255, 255, 255, 0.559)"
+        : "rgba(0, 0, 0, 0.559)"};
+    padding: 15px;
+    margin: 15px;
+  }
+  .presets {
+    display: flex;
+    gap: 2rem;
+    align-items: center;
+    justify-content: center;
+    padding: 15px;
+  }
+  span.preset {
+    border: 1px solid white;
+    cursor: pointer;
+    height: 30px;
+    width: 30px;
+    background-color: #bbb;
+    border-radius: 50%;
+    display: inline-block;
   }
   button {
     padding: 10px 12px;
@@ -72,6 +99,9 @@ const SettingsCont = styled.div`
     flex-direction: column;
     gap: 2rem;
   }
+  h3 {
+    text-align: center;
+  }
 `;
 
 const Settings = ({ setState, initialColorState }) => {
@@ -98,7 +128,98 @@ const Settings = ({ setState, initialColorState }) => {
       textColor={colors.textColor}
       logoColorMode={colors.logoColorMode}
     >
-      <h2>Theme Preview</h2>
+      <h2>Theme Settings</h2>
+      <div className="preset-section">
+        <h3>Select a preset</h3>
+        <div className="presets">
+          <span
+            name="theme-1"
+            className="preset box-shadow"
+            style={{
+              background: "linear-gradient(145deg, dodgerblue, mediumseagreen)",
+            }}
+            value={colors.colorOne}
+            onClick={(e) => {
+              setColors({
+                ...colors,
+                colorOne: "dodgerblue",
+                colorTwo: "mediumseagreen",
+                textColor: "light",
+                logoColorMode: "dark",
+              });
+            }}
+          />
+          <span
+            name="theme-2"
+            className="preset box-shadow"
+            style={{
+              background: "linear-gradient(145deg, #536976, #292E49)",
+            }}
+            value={colors.colorOne}
+            onClick={(e) => {
+              setColors({
+                ...colors,
+                colorOne: "#536976",
+                colorTwo: "#292E49",
+                textColor: "light",
+                logoColorMode: "dark",
+              });
+            }}
+          />
+          <span
+            name="theme-3"
+            className="preset box-shadow"
+            style={{
+              background: "linear-gradient(145deg, dodgerblue, blueviolet)",
+            }}
+            value={colors.colorOne}
+            onClick={(e) => {
+              setColors({
+                ...colors,
+                colorOne: "dodgerblue",
+                colorTwo: "blueviolet",
+                textColor: "light",
+                logoColorMode: "dark",
+              });
+            }}
+          />
+          <span
+            name="theme-4"
+            className="preset box-shadow"
+            style={{
+              background: "linear-gradient(145deg, #4CA1AF, #C4E0E5)",
+            }}
+            value={colors.colorOne}
+            onClick={(e) => {
+              setColors({
+                ...colors,
+                colorOne: "#4CA1AF",
+                colorTwo: "#C4E0E5",
+                textColor: "dark",
+                logoColorMode: "dark",
+              });
+            }}
+          />
+          <span
+            name="theme-5"
+            className="preset box-shadow"
+            style={{
+              background: "linear-gradient(145deg, #f857a6, #ff5858)",
+            }}
+            value={colors.colorOne}
+            onClick={(e) => {
+              setColors({
+                ...colors,
+                colorOne: "#f857a6",
+                colorTwo: "#ff5858",
+                textColor: "white",
+                logoColorMode: "dark",
+              });
+            }}
+          />
+        </div>
+      </div>
+      <h3>Customize</h3>
       <br />
       <div className="theme-field">
         <div className="color-pickers">
