@@ -102,10 +102,16 @@ const SettingsCont = styled.div`
   h3 {
     text-align: center;
   }
+  .customize-section {
+    border-top: 1px solid;
+    padding-top: 15px;
+    width: 100%;
+  }
 `;
 
 const Settings = ({ setState, initialColorState }) => {
   const [colors, setColors] = useState({ initialColorState });
+  const [showCustomize, toggleShowcustomize] = useState(false);
 
   useEffect(() => {
     console.log(initialColorState);
@@ -136,14 +142,14 @@ const Settings = ({ setState, initialColorState }) => {
             name="theme-1"
             className="preset box-shadow"
             style={{
-              background: "linear-gradient(145deg, dodgerblue, mediumseagreen)",
+              background: "linear-gradient(145deg, #005A9C, #3cb371)",
             }}
             value={colors.colorOne}
             onClick={(e) => {
               setColors({
                 ...colors,
-                colorOne: "dodgerblue",
-                colorTwo: "mediumseagreen",
+                colorOne: "#005A9C",
+                colorTwo: "#3cb371",
                 textColor: "light",
                 logoColorMode: "dark",
               });
@@ -182,6 +188,7 @@ const Settings = ({ setState, initialColorState }) => {
                 textColor: "light",
                 logoColorMode: "dark",
               });
+              handleColorChange();
             }}
           />
           <span
@@ -221,79 +228,88 @@ const Settings = ({ setState, initialColorState }) => {
           />
         </div>
       </div>
-      <h3>Customize</h3>
-      <br />
-      <div className="theme-field">
-        <div className="color-pickers">
-          <div className="option-field">
-            <label>Color one</label>
-            <input
-              type="color"
-              name="color1"
-              className="box-shadow"
-              style={{ background: colors.colorOne }}
-              value={colors.colorOne}
-              onChange={(e) => {
-                setColors({ ...colors, colorOne: e.target.value });
-              }}
-            />
-          </div>
-          <div className="option-field">
-            <label>Color two</label>
-            <input
-              type="color"
-              name="color2"
-              className="box-shadow"
-              style={{ background: colors.colorTwo }}
-              value={colors.colorTwo}
-              onChange={(e) => {
-                setColors({ ...colors, colorTwo: e.target.value });
-              }}
-            />
-          </div>
-          <div className="option-field">
-            <label htmlFor="textColor">Text Color:</label>
-            <select
-              id="textColor"
-              name="textColor"
-              value={colors.textColor}
-              onChange={(e) => {
-                setColors({ ...colors, textColor: e.target.value });
-              }}
-            >
-              <option value="light">Light</option>
-              <option value="dark">Dark</option>
-            </select>
-          </div>
+      <button
+        onClick={handleColorChange}
+        className={`box-shadow ${
+          colors.colorOne && colors.colorsTwo ? "disabled" : ""
+        }`}
+      >
+        Apply
+      </button>
+      <span
+        className="toggle"
+        onClick={(e) => toggleShowcustomize(!showCustomize)}
+      >
+        {showCustomize ? "hide" : "more"}
+      </span>
+      {showCustomize && (
+        <div className="customize-section">
+          <h3>Customize</h3>
+          <br />
+          <div className="theme-field">
+            <div className="color-pickers">
+              <div className="option-field">
+                <label>Color one</label>
+                <input
+                  type="color"
+                  name="color1"
+                  className="box-shadow"
+                  style={{ background: colors.colorOne }}
+                  value={colors.colorOne}
+                  onChange={(e) => {
+                    setColors({ ...colors, colorOne: e.target.value });
+                  }}
+                />
+              </div>
+              <div className="option-field">
+                <label>Color two</label>
+                <input
+                  type="color"
+                  name="color2"
+                  className="box-shadow"
+                  style={{ background: colors.colorTwo }}
+                  value={colors.colorTwo}
+                  onChange={(e) => {
+                    setColors({ ...colors, colorTwo: e.target.value });
+                  }}
+                />
+              </div>
+              <div className="option-field">
+                <label htmlFor="textColor">Text Color:</label>
+                <select
+                  id="textColor"
+                  name="textColor"
+                  value={colors.textColor}
+                  onChange={(e) => {
+                    setColors({ ...colors, textColor: e.target.value });
+                  }}
+                >
+                  <option value="light">Light</option>
+                  <option value="dark">Dark</option>
+                </select>
+              </div>
 
-          <div className="option-field">
-            <label htmlFor="textColor">logo Color:</label>
-            <select
-              id="textColor"
-              name="textColor"
-              value={colors.logoColorMode}
-              onChange={(e) => {
-                setColors({ ...colors, logoColorMode: e.target.value });
-              }}
-            >
-              <option value="dark">Dark</option>
-              <option value="light">Light</option>
-            </select>
+              <div className="option-field">
+                <label htmlFor="textColor">logo Color:</label>
+                <select
+                  id="textColor"
+                  name="textColor"
+                  value={colors.logoColorMode}
+                  onChange={(e) => {
+                    setColors({ ...colors, logoColorMode: e.target.value });
+                  }}
+                >
+                  <option value="dark">Dark</option>
+                  <option value="light">Light</option>
+                </select>
+              </div>
+            </div>
+            <div className="theme-right">
+              <img className="sample-logo" src={appLogo} />
+            </div>
           </div>
         </div>
-        <div className="theme-right">
-          <img className="sample-logo" src={appLogo} />
-          <button
-            onClick={handleColorChange}
-            className={`box-shadow ${
-              colors.colorOne && colors.colorsTwo ? "disabled" : ""
-            }`}
-          >
-            Change theme
-          </button>
-        </div>
-      </div>
-      <p>You must select both colors to see preview and select..</p>
+      )}
     </SettingsCont>
   );
 };
