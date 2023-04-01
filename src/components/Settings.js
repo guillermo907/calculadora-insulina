@@ -166,8 +166,8 @@ const Settings = ({ setState, initialColorState }) => {
             onClick={(e) => {
               setColors({
                 ...colors,
-                colorOne: "rgb(24, 26, 27)",
-                colorTwo: "rgb(97, 78, 115)",
+                colorOne: "#181a1b",
+                colorTwo: "#614e73",
                 textColor: "light",
                 logoColorMode: "light",
               });
@@ -183,8 +183,8 @@ const Settings = ({ setState, initialColorState }) => {
             onClick={(e) => {
               setColors({
                 ...colors,
-                colorOne: "dodgerblue",
-                colorTwo: "blueviolet",
+                colorOne: "#005A9C",
+                colorTwo: "#8a2be2",
                 textColor: "light",
                 logoColorMode: "dark",
               });
@@ -202,8 +202,8 @@ const Settings = ({ setState, initialColorState }) => {
             onClick={(e) => {
               setColors({
                 ...colors,
-                colorOne: "rgb(215, 125, 86)",
-                colorTwo: "blueviolet",
+                colorOne: "#d77d56",
+                colorTwo: "#8a2be2",
                 textColor: "dark",
                 logoColorMode: "dark",
               });
@@ -219,8 +219,8 @@ const Settings = ({ setState, initialColorState }) => {
             onClick={(e) => {
               setColors({
                 ...colors,
-                colorOne: "rgb(215, 125, 86)",
-                colorTwo: "rgb(211, 69,119)",
+                colorOne: "#d77d56",
+                colorTwo: "#d34577",
                 textColor: "white",
                 logoColorMode: "dark",
               });
