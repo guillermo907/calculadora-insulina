@@ -80,12 +80,16 @@ const App = () => {
             }));
           }}
         />
-        {state.showUserSettings && <Glucose user={state.userSettings} />}
+        <AnimatePresence>
+          {state.showUserSettings && <Glucose user={state.userSettings} />}
+        </AnimatePresence>
+
         <AnimatePresence>
           {state.showUserSettings && (
             <Settings setState={changeColor} initialColorState={theme} />
           )}
         </AnimatePresence>
+
         <FoodInput foods={state.foodList} />
         <Footer />
       </AppContainer>

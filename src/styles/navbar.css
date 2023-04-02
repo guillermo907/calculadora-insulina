@@ -5,7 +5,7 @@
   width: -webkit-fill-available;
   padding: 30px 20px 0px 30px;
 }
-img {
+.navbar img {
   width: 60px;
   filter: contrast(0.7);
   transition: all 0.4s ease-in-out;
@@ -15,6 +15,6 @@ img:hover {
   filter: none;
   transform: scale(1.09);
 }
-.user-logo {
+.navbar .user-logo {
   width: 45px;
 }

@@ -2,6 +2,7 @@ import styled from "styled-components";
 import { AnimatePresence, motion } from "framer-motion";
 import { useState, useEffect } from "react";
 import appLogo from "../resources/app-logo2.png";
+import settingsLogo from "../resources/settings-logo1.png";
 
 const SettingsCont = styled(motion.div)`
   background: linear-gradient(
@@ -107,6 +108,35 @@ const SettingsCont = styled(motion.div)`
     border-top: 1px solid;
     padding-top: 15px;
     width: 100%;
+  }
+  .toggle {
+    margin: 20px 0px 40px 0px;
+    position: relative;
+    cursor: pointer;
+  }
+  .settings-logo {
+    position: absolute;
+    left: -10px;
+    top: 14px;
+    width: 60px;
+    opacity: 0.8;
+  }
+  .toggle p {
+    z-index: 2;
+    cursor: pointer;
+    font-weight: bold;
+    text-shadow: 0.7px 0.8px rgba(255, 255, 255, 0.6);
+  }
+  .rotate {
+    animation: loading 5s linear infinite;
+    @keyframes loading {
+      0% {
+        transform: rotate(0);
+      }
+      100% {
+        transform: rotate(360deg);
+      }
+    }
   }
 `;
 
@@ -243,7 +273,8 @@ const Settings = ({ setState, initialColorState }) => {
         className="toggle"
         onClick={(e) => toggleShowcustomize(!showCustomize)}
       >
-        {showCustomize ? "hide" : "more"}
+        <p>{showCustomize ? "Hide ↑" : "More ↓"}</p>
+        <img className="settings-logo rotate" src={settingsLogo} />
       </span>
       <AnimatePresence>
         {showCustomize && (
