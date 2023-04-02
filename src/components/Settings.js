@@ -17,7 +17,7 @@ const SettingsCont = styled(motion.div)`
   flex-direction: column;
   align-items: center;
   justify-content: space-between;
-  padding: 35px 15px 10px 15px;
+  padding: 35px 15px 30px 15px;
   margin: 5px;
   border-radius: 7px;
 
@@ -107,10 +107,11 @@ const SettingsCont = styled(motion.div)`
   .customize-section {
     border-top: 1px solid;
     padding-top: 15px;
+    margin-top: 30px;
     width: 100%;
   }
   .toggle {
-    margin: 20px 0px 40px 0px;
+    margin: 20px 0px 20px 0px;
     position: relative;
     cursor: pointer;
   }
@@ -120,6 +121,9 @@ const SettingsCont = styled(motion.div)`
     top: 14px;
     width: 60px;
     opacity: 0.8;
+  }
+  .sample-logo {
+    width: 100px;
   }
   .toggle p {
     z-index: 2;
