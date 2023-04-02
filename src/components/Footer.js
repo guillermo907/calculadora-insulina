@@ -1,10 +1,53 @@
-import "../styles/footer.css";
+import styled from "styled-components";
+import { motion } from "framer-motion";
+
+const FooterContainer = styled(motion.div)`
+  .footer {
+    position: fixed;
+    bottom: 0;
+    left: 0%;
+    display: flex;
+    background: linear-gradient(to right, coral, crimson, blueviolet, orange);
+
+    width: 100%;
+    height: 9px;
+  }
+
+  .moveBg {
+    animation: moveGradient 8s ease-in-out infinite;
+
+    @keyframes moveGradient {
+      0% {
+        background-position: 0% 50%;
+        background-size: 190%;
+      }
+      25% {
+        background-position: 50% 50%;
+        background-size: 250%;
+      }
+      50% {
+        background-position: 100% 50%;
+        background-size: 200%;
+      }
+      75% {
+        background-position: 50% 50%;
+        background-size: 250%;
+      }
+      100% {
+        background-position: 0% 50%;
+        background-size: 190%;
+      }
+    }
+  }
+`;
 
 const Footer = () => {
   return (
-    <div className="footer">
-      <p></p>
-    </div>
+    <FooterContainer className="moveBg">
+      <div className="footer moveBg">
+        <p></p>
+      </div>
+    </FooterContainer>
   );
 };
 
