@@ -1,5 +1,7 @@
 import React, { useEffect, useState, useContext } from "react";
 import axios from "axios";
+import { motion, AnimatePresence } from "framer-motion";
+
 import Glucose from "./components/Glucose";
 import FoodInput from "./components/FoodInput";
 import Navbar from "./components/Navbar";
@@ -10,7 +12,7 @@ import { ThemeContext, ThemeProvider } from "./contexts/ThemeContext.js";
 import "./styles/global.css";
 import styled from "styled-components";
 
-const AppContainer = styled.div`
+const AppContainer = styled(motion.div)`
   background: linear-gradient(
     to right,
     ${(props) => props.colorOne},
@@ -79,9 +81,11 @@ const App = () => {
           }}
         />
         {state.showUserSettings && <Glucose user={state.userSettings} />}
-        {state.showUserSettings && (
-          <Settings setState={changeColor} initialColorState={theme} />
-        )}
+        <AnimatePresence>
+          {state.showUserSettings && (
+            <Settings setState={changeColor} initialColorState={theme} />
+          )}
+        </AnimatePresence>
         <FoodInput foods={state.foodList} />
         <Footer />
       </AppContainer>
