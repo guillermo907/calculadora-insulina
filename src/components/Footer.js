@@ -23,15 +23,11 @@ const FooterContainer = styled(motion.div)`
       }
       25% {
         background-position: 50% 50%;
-        background-size: 250%;
+        background-size: 230%;
       }
       50% {
         background-position: 100% 50%;
-        background-size: 200%;
-      }
-      75% {
-        background-position: 50% 50%;
-        background-size: 250%;
+        background-size: 210%;
       }
       100% {
         background-position: 0% 50%;
