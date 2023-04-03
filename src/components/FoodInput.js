@@ -10,7 +10,7 @@ const FoodInputContainer = styled(motion.div)`
   background: linear-gradient(
     to top,
     rgba(255, 255, 255, 0),
-    rgba(251, 251, 251, 0.152)
+    rgba(251, 251, 251, 0.112)
   );
   background-size: 300%;
   /* min-height: 84dvh; */
