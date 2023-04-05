@@ -197,15 +197,14 @@ const Settings = ({ setState, initialColorState }) => {
             name="theme-2"
             className="preset box-shadow"
             style={{
-              background:
-                "linear-gradient(145deg, rgb(24, 26, 27), rgb(97, 78, 115))",
+              background: "linear-gradient(145deg, #544171, #335DDB)",
             }}
             value={colors.colorOne}
             onClick={(e) => {
               setColors({
                 ...colors,
-                colorOne: "#181a1b",
-                colorTwo: "#614e73",
+                colorOne: "#544171",
+                colorTwo: "#335DDB",
                 textColor: "light",
                 logoColorMode: "light",
               });
@@ -215,14 +214,14 @@ const Settings = ({ setState, initialColorState }) => {
             name="theme-3"
             className="preset box-shadow"
             style={{
-              background: "linear-gradient(145deg, #532598, #4565B0)",
+              background: "linear-gradient(145deg, #141414, #303031)",
             }}
             value={colors.colorOne}
             onClick={(e) => {
               setColors({
                 ...colors,
-                colorOne: "#532598",
-                colorTwo: "#4565B0",
+                colorOne: "#141414",
+                colorTwo: "#303031",
                 textColor: "light",
                 logoColorMode: "dark",
               });
