@@ -17,6 +17,15 @@ const GlucoseContainer = styled(motion.div)`
   .disabled {
     opacity: 0.5;
   }
+  .field {
+    display: flex;
+    align-items: center;
+    justify-content: end;
+
+    input {
+      padding: 12px 5px;
+    }
+  }
 `;
 
 const Glucose = ({ user }) => {

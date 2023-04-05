@@ -100,3 +100,11 @@ h3.legend {
 .toggle {
   margin: 15px;
 }
+label {
+  margin: 1rem;
+}
+input {
+  border-radius: 7px;
+  padding: 5px 5px;
+  border: none;
+}

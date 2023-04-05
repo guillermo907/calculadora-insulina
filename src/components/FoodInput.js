@@ -2,7 +2,6 @@ import React, { useState, useEffect } from "react";
 import { motion } from "framer-motion";
 import styled from "styled-components";
 import cubiertosLogo from "../resources/cubiertos.png";
-import "../styles/foodInput.css";
 
 const FoodInputContainer = styled(motion.div)`
   padding: 50px 15px;
