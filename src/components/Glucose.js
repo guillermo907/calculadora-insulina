@@ -6,13 +6,15 @@ import Settings from "./Settings";
 
 const GlucoseContainer = styled(motion.div)`
   .glucose-input-group img {
+  }
+  .info-logo {
+    width: 30px;
+  }
+  .app-logo-glucose {
     width: 100px;
     padding-bottom: 10px;
     filter: invert(1);
     opacity: 0.6;
-  }
-  .app-logo-glucose {
-    width: 300px;
   }
   .disabled {
     opacity: 0.5;
@@ -38,7 +40,7 @@ const Glucose = ({ user }) => {
     >
       <div className={`flex-column glucose-input-group `}>
         <div className="field">
-          <label>Nivel de glucosa actual</label>
+          <label>Glucosa actual</label>
           <input placeholder="100"></input>
         </div>
         <div className="field">
@@ -49,7 +51,7 @@ const Glucose = ({ user }) => {
           <input placeholder={user.RIC}></input>
         </div>
         <div className="field">
-          <label>Ingrese su sensibilidad</label>
+          <label>Sensibilidad</label>
           <input placeholder={user.sensibilidad}></input>
         </div>
       </div>

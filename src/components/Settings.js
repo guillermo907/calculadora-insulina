@@ -2,7 +2,8 @@ import styled from "styled-components";
 import { AnimatePresence, motion } from "framer-motion";
 import { useState, useEffect } from "react";
 import appLogo from "../resources/app-logo2.png";
-import settingsLogo from "../resources/settings-logo1.png";
+import settingsLogo from "../resources/settings-logo2.png";
+import settingsGalaxy from "../resources/settings-logo1.png";
 
 const SettingsCont = styled(motion.div)`
   background: linear-gradient(
@@ -44,7 +45,7 @@ const SettingsCont = styled(motion.div)`
         ? "rgba(255, 255, 255, 0.559)"
         : "rgba(0, 0, 0, 0.559)"};
     padding: 15px;
-    margin: 15px;
+    margin: 15px 0px;
   }
   .presets {
     display: flex;
@@ -77,6 +78,7 @@ const SettingsCont = styled(motion.div)`
     margin-top: 2rem;
     opacity: 0.8;
     font-style: italic;
+    color: ${(props) => (props.logoColorMode === "light" ? "black" : "white")};
   }
   .color-pickers {
     display: flex;
@@ -117,10 +119,22 @@ const SettingsCont = styled(motion.div)`
   }
   .settings-logo {
     position: absolute;
+    left: -1px;
+    top: 22px;
+    width: 40px;
+    opacity: 0.9;
+    z-index: 1;
+    animation: spin 9s linear infinite;
+    filter: ${(props) =>
+      props.logoColorMode === "light" ? "invert(0.9)" : "none"} !important;
+  }
+  .galaxy {
     left: -10px;
     top: 14px;
     width: 60px;
-    opacity: 0.8;
+    opacity: 0.6;
+    z-index: 0;
+    animation: spin 14s ease-in-out infinite;
   }
   .sample-logo {
     width: 100px;
@@ -129,11 +143,9 @@ const SettingsCont = styled(motion.div)`
     z-index: 2;
     cursor: pointer;
     font-weight: bold;
-    text-shadow: 0.7px 0.8px rgba(255, 255, 255, 0.6);
   }
-  .rotate {
-    animation: loading 5s linear infinite;
-    @keyframes loading {
+
+    @keyframes spin {
       0% {
         transform: rotate(0);
       }
@@ -276,8 +288,11 @@ const Settings = ({ setState, initialColorState }) => {
         className="toggle"
         onClick={(e) => toggleShowcustomize(!showCustomize)}
       >
-        <p>{showCustomize ? "Hide ↑" : "More ↓"}</p>
-        <img className="settings-logo rotate" src={settingsLogo} />
+        <p className="show-toggle-text">
+          {showCustomize ? "Hide ↑" : "More ↓"}
+        </p>
+        <img className="settings-logo box-shadow" src={settingsLogo} />
+        <img className="settings-logo galaxy" src={settingsGalaxy} />
       </span>
       <AnimatePresence>
         {showCustomize && (
