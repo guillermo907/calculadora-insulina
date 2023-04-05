@@ -1,14 +1,14 @@
 {
   "files": {
     "main.css": "/calculadora-insulina/static/css/main.be5dc223.css",
-    "main.js": "/calculadora-insulina/static/js/main.42e9db3c.js",
+    "main.js": "/calculadora-insulina/static/js/main.3e981e60.js",
     "static/media/settings-logo1.png": "/calculadora-insulina/static/media/settings-logo1.5fa3182c5d43f002c283.png",
     "index.html": "/calculadora-insulina/index.html",
     "main.be5dc223.css.map": "/calculadora-insulina/static/css/main.be5dc223.css.map",
-    "main.42e9db3c.js.map": "/calculadora-insulina/static/js/main.42e9db3c.js.map"
+    "main.3e981e60.js.map": "/calculadora-insulina/static/js/main.3e981e60.js.map"
   },
   "entrypoints": [
     "static/css/main.be5dc223.css",
-    "static/js/main.42e9db3c.js"
+    "static/js/main.3e981e60.js"
   ]
 }
