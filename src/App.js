@@ -71,6 +71,9 @@ const App = () => {
         colorTwo={theme.colorTwo}
         textColor={theme.textColor}
         logoColorMode={theme.logoColorMode}
+        initial={{ backgroundSize: "120%" }}
+        animate={{ backgroundSize: "200%" }}
+        transition={{ duration: 3, delay: 0.3 }}
       >
         <Navbar
           toggleUserSettings={() => {
