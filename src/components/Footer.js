@@ -7,7 +7,15 @@ const FooterContainer = styled(motion.div)`
     bottom: 0;
     left: 0%;
     display: flex;
-    background: linear-gradient(to right, coral, crimson, blueviolet, orange);
+    background: linear-gradient(
+      to right,
+      coral,
+      crimson,
+      blueviolet,
+      orange,
+      blueviolet,
+      crimson
+    );
 
     width: 100%;
     height: 9px;
@@ -27,11 +35,15 @@ const FooterContainer = styled(motion.div)`
       }
       50% {
         background-position: 100% 50%;
-        background-size: 210%;
+        background-size: 250%;
+      }
+      75% {
+        ackground-position: 300% 50%;
+        background-size: 250%;
       }
       100% {
         background-position: 0% 50%;
-        background-size: 190%;
+        background-size: 200%;
       }
     }
   }
